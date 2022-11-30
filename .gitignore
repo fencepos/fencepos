@@ -1,2 +1,6 @@
 node_modules/
 .vscode/
+/.idea/sonarlint/issuestore/*
+/.idea/sonarlint/issuestore/index.pb
+/.idea/vcs.xml
+/.idea/workspace.xml
