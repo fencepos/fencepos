@@ -4,3 +4,4 @@ node_modules/
 /.idea/sonarlint/issuestore/index.pb
 /.idea/vcs.xml
 /.idea/workspace.xml
+.idea/
