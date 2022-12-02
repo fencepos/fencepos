@@ -29,7 +29,7 @@ function LoginPage() {
                     </div>
                     <input type={"submit"} value={"Login"} className={"btn btn-gradient-reversed mt-5 shadow"} />
                 </form>
-            <a href={""} className={"text-white mt-5 block"}>Forgot password?</a>
+            <a href={"#forgotpass"} className={"text-white mt-5 block"}>Forgot password?</a>
         </div>
     );
 }
