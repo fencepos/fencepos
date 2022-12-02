@@ -42,6 +42,14 @@ code {
   background: linear-gradient(45deg, #423EFF 0%, #FF3EFB 100%);
 }
 
+.bg-gradient {
+  background: linear-gradient(45deg, #FF3EFB 0%, #423EFF 100%);
+}
+
+.bg-gradient-reversed {
+  background: linear-gradient(45deg, #423EFF 0%, #FF3EFB 100%);
+}
+
 .btn:hover {
   cursor: pointer;
   filter: brightness(125%);

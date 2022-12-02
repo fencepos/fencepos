@@ -13,7 +13,7 @@ function LoginPage() {
     }
 
     return (
-        <div className={"container text-center pt-10"}>
+        <div className={"mx-auto px-5 bg-gradient text-center min-h-screen pt-10"}>
             <span className={"drop-shadow font-bold text-6xl block text-white"}>FencePOS</span>
             <span className={"drop-shadow font-bold text-lg text-white"}>Please log in to use the application.</span>
                 <form onSubmit={handleSubmit}>
