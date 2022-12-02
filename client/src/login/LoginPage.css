@@ -1,0 +1,12 @@
+body {
+    background: linear-gradient(45deg, #FF3EFB 0%, #423EFF 100%);
+}
+
+.loginBox {
+    border-radius: 1em;
+    width: 35%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
