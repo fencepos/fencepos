@@ -1,15 +1,28 @@
 # FencePOS
 
-Open-source Point of Sale software.
+FencePOS is a Open-source Point of Sale software to keep track of retail transactions with support of Tracking Sales, Inventory Management, and Cashier interface.
+<br/> Founded in November, 2022
 
-## Features
+# Table of contents
+Main:
+   1. [Features](#Features)
+   2. [Tech Stack](#tech-stack)
+   3. [Installation](#install-guide)
+
+Others:
+   * [Maintainers](#maintainers)
+   * [Project Structure](#proj-structure)
+
+---
+
+### Our Features <a name="Features"></a>
 
 | Feature              | Status  |
 |:---------------------|:--------|
 | Inventory management | Planned |
 | Cashier interface    | Planned |
 
-## Tech stack
+### Our Tech stack <a name="tech-stack"></a>
 
 | Part     | Tech        |
 |:---------|:------------|
@@ -18,12 +31,19 @@ Open-source Point of Sale software.
 | Frontend | React.js    |
 |          | TailwindCSS |
 
-## Maintained by
+### How to install? <a name="install-guide"></a>
+[//]: # (TODO: add installation guide)
+ ---
+ 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+### Maintained by <a name="maintainers"></a>
 
 [jxpsert](https://github.com/jxpsert)
 [nerdylive123](https://github.com/nerdylive123)
 
-## Project Structure
+### Project Structure <a name="proj-structure"></a>
 * Server:
 ````
 Server-Root/
@@ -43,4 +63,4 @@ Server-Root/
 ````
 * Client :
 
-[//]: # (TODO: add project structure for  client)
+[//]: # (TODO: add project structure for react)
