@@ -1,6 +1,6 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express'),
+    app = express();
+const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +18,10 @@ app.get('/users/:userId/books/:bookId', (req, res) => {
 const birds = require('./RouterModule')
 
 app.use('/yay', birds) // localhost:3000/yay
+
+const testRoutes = require('./routes/auth');
+
+app.use('/auth', testRoutes);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
