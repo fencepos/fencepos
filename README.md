@@ -4,25 +4,22 @@ FencePOS is a Open-source Point of Sale software to keep track of retail transac
 <br/> Founded in November, 2022
 
 # Table of contents
-Main:
-   1. [Features](#Features)
-   2. [Tech Stack](#tech-stack)
-   3. [Installation](#install-guide)
-
-Others:
+   * [Features](#features)
+   * [Tech stack](#tech-stack)
+   * [Installation](#installation)
+   * [Directory structure](#directory-structure)
    * [Maintainers](#maintainers)
-   * [Project Structure](#proj-structure)
 
 ---
 
-### Our Features <a name="Features"></a>
+### Features
 
 | Feature              | Status  |
 |:---------------------|:--------|
 | Inventory management | Planned |
 | Cashier interface    | Planned |
 
-### Our Tech stack <a name="tech-stack"></a>
+### Tech stack
 
 | Part     | Tech        |
 |:---------|:------------|
@@ -31,36 +28,41 @@ Others:
 | Frontend | React.js    |
 |          | TailwindCSS |
 
-### How to install? <a name="install-guide"></a>
-[//]: # (TODO: add installation guide)
- ---
- 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-### Maintained by <a name="maintainers"></a>
+### Installation
 
-[jxpsert](https://github.com/jxpsert)
-[nerdylive123](https://github.com/nerdylive123)
+[//]: # (TODO: add install guide)
 
-### Project Structure <a name="proj-structure"></a>
+### Directory structure
+
 * Server:
 ````
-Server-Root/
+server/
    node_modules/
    config/
-      db.js                //Database connection and configuration
-      credentials.js       //Passwords/API keys for external services used by your app
-   models/                 //For mongoose schemas
+      db.js                // Database connection and configuration
+      credentials.js       // Passwords/API keys for external services used by your app
+   models/                 // For mongoose schemas
       users.js
       things.js
-   routes/                 //All routes for different entities in different files 
+   routes/                 // All routes for different entities in different files 
       users.js
       things.js
    app.js
-   routes.js               //Require all routes in this and then require this file in 
+   routes.js               // Require all routes in this and then require this file in 
    package.json
 ````
-* Client :
+* Client:
+````
+client/
+   node_modules/
+    public/               // Static files
+    src/                          
+        components/       // React components
+        login/            // Login page
+        fonts/            // Fonts
+````
 
-[//]: # (TODO: add project structure for react)
+### Maintainers
+
+[jxpsert](https://github.com/jxpsert)
+[nerdylive123](https://github.com/nerdylive123)
