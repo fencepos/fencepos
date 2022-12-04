@@ -23,6 +23,8 @@ FencePOS is a Open-source Point of Sale software to keep track of retail transac
 |:---------|:------------|
 | Backend  | Express.js  |
 |          | SQLite      |
+|          | Passport.js |
+|          | Sequelize   |
 | Frontend | React.js    |
 |          | TailwindCSS |
 
