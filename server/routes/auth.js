@@ -1,19 +1,21 @@
 const express = require('express'),
     router = express.Router();
-const AuthModel = require("../models/auth/User");
+const AuthModel = require("../models/auth/AuthModel");
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-router.get("/", (req, res) => {
+router.get("/", (req, res ) => {
     res.send("hello express server")
 })
 
-router.post("/login", (req, res) => {
-    let {email, password} = req.body;
+router.post("/register", async (req, res) => {
+    let {username, email, password} = req.body;
 
-    AuthModel.registerUser(email, password);
-    return res.json({message: [email, password], status: "x"});
+    AuthModel.registerUser(email, username, password).then(status => {
+        return res.json({status: status});
+    });
+
 });
 
 // router.get("/protected", passport.authenticate('jwt', { session: false }), (req, res) => {

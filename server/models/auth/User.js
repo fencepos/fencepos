@@ -34,6 +34,7 @@ const db = new Sequelize({
         },
     });
 
+    // SYNC DB ( Migrations )
     (async () => {
         await User.sync();
         try {
@@ -44,34 +45,4 @@ const db = new Sequelize({
         }
     })();
 
-class AuthModel {
-
-    static testAuth() {
-        try {
-            db.authenticate().then(r => console.log("DB AUTH SUCCESS! " + r));
-        } catch (e) {
-            console.log("error: " + e);
-        }
-    }
-    static registerUser(username, password) {
-        console.log(username, password);
-        (async () => {
-                try {
-                    const NewUser = User.build({username: username, password: password});
-                    await NewUser.save();
-                } catch (error) {
-                    console.error(error);
-                }
-        })();
-    }
-
-    static index() {
-        User.findAll().then(res => res.map((El) => {
-            console.log(El.getDataValue("username"))
-        }));
-    }
-
-}
-
-module.exports = AuthModel;
-
+    module.exports = { User }
