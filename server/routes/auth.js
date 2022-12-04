@@ -1,6 +1,7 @@
 const express = require('express'),
     router = express.Router();
 const AuthModel = require("../models/auth/AuthModel");
+const {passport} = require("../config/passport");
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
@@ -15,7 +16,10 @@ router.post("/register", async (req, res) => {
     AuthModel.registerUser(email, username, password).then(status => {
         return res.json({status: status});
     });
+});
 
+router.post("/login", passport.authenticate('local'), (req, res) => {
+    res.json(req.user);
 });
 
 // router.get("/protected", passport.authenticate('jwt', { session: false }), (req, res) => {

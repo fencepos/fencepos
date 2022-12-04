@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes} = require("sequelize");
-const path = require('path')
+const path = require('path');
+const bcrypt = require('bcryptjs');
 // specify current directory explicitly
 let specpath = path.join(__dirname, '..', 'db', 'database.db');
 const db = new Sequelize({
@@ -34,15 +35,23 @@ const db = new Sequelize({
         },
     });
 
+    User.addHook('beforeCreate', (newUser) => {
+        newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10), null);
+    });
+
+    User.prototype.validPass = async function(password) {
+        return await bcrypt.compare(password, this.password);
+    }
+
     // SYNC DB ( Migrations )
-    (async () => {
-        await User.sync();
-        try {
-            await db.authenticate();
-            console.log('Connection has been established successfully.');
-        } catch (error) {
-            console.error('Unable to connect to the database:', error);
-        }
-    })();
+    // (async () => {
+    //     await User.sync();
+    //     try {
+    //         await db.authenticate();
+    //         console.log('Connection has been established successfully.');
+    //     } catch (error) {
+    //         console.error('Unable to connect to the database:', error);
+    //     }
+    // })();
 
     module.exports = { User }

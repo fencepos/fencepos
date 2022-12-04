@@ -1,9 +1,15 @@
 const express = require('express'),
     app = express();
+const session = require('express-session');
 const port = 3000;
+const passport = require('passport');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({ secret: "example value" }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/greet/:name', (req, res) => {// greet/Alex
     return res.send(
