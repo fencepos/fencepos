@@ -1,16 +1,6 @@
 const {User} = require("./User")
-const bcrypt = require('bcrypt');
 
 class AuthModel {
-
-    static async comparePass(password, hashedPassword){
-        return await bcrypt.compare(password, hashedPassword);
-    }
-
-    static async hash(password) {
-        const salt = await bcrypt.genSalt(8);
-        return await bcrypt.hash(password, salt);
-    }
 
     static async registerUser(email, username, password) {
         // Validations
@@ -26,8 +16,7 @@ class AuthModel {
         }
 
         // Create account
-        let HashPWD = this.hash(password).toString();
-        const NewUser = User.build({username: email, password: HashPWD});
+        const NewUser = User.build({username: username, email: email , password: password});
         const result = await NewUser.save().catch(error => {
             return error
         });

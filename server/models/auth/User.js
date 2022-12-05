@@ -5,7 +5,8 @@ const bcrypt = require('bcryptjs');
 let specpath = path.join(__dirname, '..', 'db', 'database.db');
 const db = new Sequelize({
     dialect: 'sqlite',
-    storage: specpath
+    storage: specpath,
+    logging: false
 });
 
     const User = db.define("User", {
@@ -39,19 +40,25 @@ const db = new Sequelize({
         newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10), null);
     });
 
-    User.prototype.validPass = async function(password) {
+    User.prototype.validPass = async function (password) {
         return await bcrypt.compare(password, this.password);
     }
 
-    // SYNC DB ( Migrations )
-    // (async () => {
-    //     await User.sync();
-    //     try {
-    //         await db.authenticate();
-    //         console.log('Connection has been established successfully.');
-    //     } catch (error) {
-    //         console.error('Unable to connect to the database:', error);
-    //     }
-    // })();
+    const syncDB = async ()  => {
+        try {
+            await db.authenticate();
+            console.log('Connection has been established successfully.');
+            await User.sync();
+            console.log('DB Synced');
+        } catch (error) {
+            console.error('Unable to connect to the database:', error);
+        }
+    };
+
+    (async () => {
+        await syncDB();
+    })();
+
+// then execute some code inside a closure
 
     module.exports = { User }

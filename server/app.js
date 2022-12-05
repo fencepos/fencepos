@@ -7,7 +7,12 @@ const passport = require('passport');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({ secret: "example value" }));
+// TODO: Change this session secret. ( to .env + add generator for this secret )
+app.use(session({
+    secret: "example value",
+    resave: true,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
