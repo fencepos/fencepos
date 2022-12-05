@@ -13,8 +13,8 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize({ userProperty: 'user' }));
+app.use(passport.session({ pauseStream: true}));
 
 app.get('/greet/:name', (req, res) => {// greet/Alex
     return res.send(

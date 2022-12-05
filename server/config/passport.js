@@ -14,8 +14,8 @@ passport.serializeUser(function(user, done) {
     done(null, user.uuid);
 });
 
-passport.deserializeUser(function(uuid, done) {
-    User.findOne({ where: { uuid: uuid } }).then(user => {
+passport.deserializeUser(async function(uuid, done) {
+    await User.findOne({ where: { uuid: uuid } }).then(user => {
         done(null, user);
     });
 });
