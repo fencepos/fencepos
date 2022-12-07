@@ -1,10 +1,12 @@
 const { Sequelize, DataTypes} = require("sequelize");
-const path = require('path')
+const path = require('path');
+const bcrypt = require('bcryptjs');
 // specify current directory explicitly
 let specpath = path.join(__dirname, '..', 'db', 'database.db');
 const db = new Sequelize({
     dialect: 'sqlite',
-    storage: specpath
+    storage: specpath,
+    logging: false
 });
 
     const User = db.define("User", {
@@ -34,44 +36,29 @@ const db = new Sequelize({
         },
     });
 
-    (async () => {
-        await User.sync();
+    User.addHook('beforeCreate', (newUser) => {
+        newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10));
+    });
+
+    User.prototype.validPass = async function (password) {
+        return await bcrypt.compare(password, this.password);
+    }
+
+    const syncDB = async ()  => {
         try {
             await db.authenticate();
             console.log('Connection has been established successfully.');
+            await User.sync();
+            console.log('DB Synced');
         } catch (error) {
             console.error('Unable to connect to the database:', error);
         }
+    };
+
+    (async () => {
+        await syncDB();
     })();
 
-class AuthModel {
+// then execute some code inside a closure
 
-    static testAuth() {
-        try {
-            db.authenticate().then(r => console.log("DB AUTH SUCCESS! " + r));
-        } catch (e) {
-            console.log("error: " + e);
-        }
-    }
-    static registerUser(username, password) {
-        console.log(username, password);
-        (async () => {
-                try {
-                    const NewUser = User.build({username: username, password: password});
-                    await NewUser.save();
-                } catch (error) {
-                    console.error(error);
-                }
-        })();
-    }
-
-    static index() {
-        User.findAll().then(res => res.map((El) => {
-            console.log(El.getDataValue("username"))
-        }));
-    }
-
-}
-
-module.exports = AuthModel;
-
+    module.exports = { User, db }
