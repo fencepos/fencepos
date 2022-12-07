@@ -37,7 +37,7 @@ const db = new Sequelize({
     });
 
     User.addHook('beforeCreate', (newUser) => {
-        newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10), null);
+        newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(10));
     });
 
     User.prototype.validPass = async function (password) {
@@ -61,4 +61,4 @@ const db = new Sequelize({
 
 // then execute some code inside a closure
 
-    module.exports = { User }
+    module.exports = { User, db }

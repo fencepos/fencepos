@@ -24,13 +24,13 @@ class AuthModel {
         if (result && result.stack && result.message) // it's an error, probably
             return "error " + result.message;
 
-        return "success: " + result.getDataValue('username');
+        return "register_success";
 
     }
 
-    static index() {
-        User.findAll().then(res => res.map((El) => {
-            console.log(El.getDataValue("username"))
+    static indexUsers() {
+        User.findAll().then(res => res.map((mapped) => {
+            console.log(mapped.getDataValue("username"))
         }));
     }
 
