@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import App from './App';
-import LoginPage from "./login/LoginPage";
+import App from './components/App';
+import LoginPage from "./components/login/LoginPage";
 import reportWebVitals from './reportWebVitals';
 
-const router = createBrowserRouter([
+const authRouter = createBrowserRouter([
     { path: '/', element: <App /> },
     { path: '/login', element: <LoginPage /> }
-]);
+], {  basename: '/auth' });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={authRouter} />
   </React.StrictMode>
 );
 
