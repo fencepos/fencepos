@@ -1,5 +1,5 @@
 version: 2
 updates:
-  - package_manager: "npm"
-    directories: ["./", "./client", "./server"]
-    update_schedule: "daily"
+  - package-ecosystem: "npm"
+    directory: ["./", "./client", "./server"]
+    schedule: "daily"
