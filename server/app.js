@@ -2,13 +2,21 @@ const express = require('express'),
     app = express();
 const session = require('express-session');
 let SequelizeStore = require("connect-session-sequelize")(session.Store);
-const port = 3000;
+const port = 8080;
 const passport = require('passport');
+const cors = require('cors')
 
 const { db } = require("./models/auth/User")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const corsOptions = {
+    origin: '*',
+    credentials: false
+}
+
+app.use(cors(corsOptions));
 
 // TODO: Change this session secret. ( to .env + add generator for this secret )
 let sessionStore = new SequelizeStore({

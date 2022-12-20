@@ -10,6 +10,26 @@ function LoginPage() {
         console.log('username: ' + username);
         console.log('password: ' + password);
         // auth stuff here
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("username", username);
+        urlencoded.append("password", password);
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("http://" + window.location.hostname + ":8080/auth/login", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+//
     }
 
     return (
