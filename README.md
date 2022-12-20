@@ -1,7 +1,6 @@
 # FencePOS
 
 FencePOS is a Open-source Point of Sale software to keep track of retail transactions with support of Tracking Sales, Inventory Management, and Cashier interface.
-<br/> Founded in November, 2022
 
 # Table of contents
    * [Features](#features)

@@ -7,6 +7,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 router.use((req, res, next) => {
     // Useless for now, maybe used in the future.
+    console.log("Accesed!");
     const {user} = req;
     if (user) {
         next();
