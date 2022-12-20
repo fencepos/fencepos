@@ -1,0 +1,5 @@
+version: 2
+update_configs:
+  - package_manager: "npm"
+    directories: ["./", "./client", "./server"]
+    update_schedule: "daily"
