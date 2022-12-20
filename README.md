@@ -1,46 +1,68 @@
 # FencePOS
 
-Open-source Point of Sale software.
+FencePOS is a Open-source Point of Sale software to keep track of retail transactions with support of Tracking Sales, Inventory Management, and Cashier interface.
+<br/> Founded in November, 2022
 
-## Features
+# Table of contents
+   * [Features](#features)
+   * [Tech stack](#tech-stack)
+   * [Installation](#installation)
+   * [Directory structure](#directory-structure)
+   * [Maintainers](#maintainers)
+
+### Features
 
 | Feature              | Status  |
 |:---------------------|:--------|
 | Inventory management | Planned |
 | Cashier interface    | Planned |
 
-## Tech stack
+### Tech stack
 
 | Part     | Tech        |
 |:---------|:------------|
 | Backend  | Express.js  |
 |          | SQLite      |
+|          | Passport.js |
+|          | Sequelize   |
 | Frontend | React.js    |
 |          | TailwindCSS |
 
-## Maintained by
+### Installation
 
-[jxpsert](https://github.com/jxpsert)
-[nerdylive123](https://github.com/nerdylive123)
+[//]: # (TODO: add install guide)
 
-## Project Structure
+### Directory structure
+
 * Server:
 ````
-Server-Root/
+server/
    node_modules/
    config/
-      db.js                //Database connection and configuration
-      credentials.js       //Passwords/API keys for external services used by your app
-   models/                 //For mongoose schemas
+      db.js                // Database connection and configuration
+      credentials.js       // Passwords/API keys for external services used by your app
+   models/                 // For mongoose schemas
       users.js
       things.js
-   routes/                 //All routes for different entities in different files 
+   routes/                 // All routes for different entities in different files 
       users.js
       things.js
    app.js
-   routes.js               //Require all routes in this and then require this file in 
+   routes.js               // Require all routes in this and then require this file in 
    package.json
 ````
-* Client :
+* Client:
+````
+client/
+   node_modules/
+    public/               // Static files
+    src/                          
+        components/       // React components
+        login/            // Login page
+        fonts/            // Fonts
+````
 
-[//]: # (TODO: add project structure for  client)
+### Maintainers
+
+[jxpsert](https://github.com/jxpsert)
+[nerdylive123](https://github.com/nerdylive123)
