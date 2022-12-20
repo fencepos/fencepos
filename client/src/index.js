@@ -7,8 +7,8 @@ import LoginPage from "./components/login/LoginPage";
 import reportWebVitals from './reportWebVitals';
 
 const authRouter = createBrowserRouter([
-    { path: '/', element: <App /> },
-    { path: '/login', element: <LoginPage /> }
+  { path: '/', element: <App /> },
+  { path: '/login', element: <LoginPage /> }
 ], {  basename: '/auth' });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
