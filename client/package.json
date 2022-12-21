@@ -10,7 +10,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.5.0",
-    "react-router-dom": "^6.4.4",
+    "react-router-dom": "^6.5.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^3.1.0"
   },
@@ -36,12 +36,12 @@
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.2.0",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "postcss": "^8.4.19",
+    "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
   }
 }
