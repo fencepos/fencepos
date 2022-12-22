@@ -5,7 +5,7 @@ let SequelizeStore = require("connect-session-sequelize")(session.Store);
 const port = 8080;
 const passport = require('passport');
 const cors = require('cors')
-
+require("dotenv").config();
 const { db } = require("./models/auth/User")
 
 app.use(express.json());
@@ -18,14 +18,13 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// TODO: Change this session secret. ( to .env + add generator for this secret )
 let sessionStore = new SequelizeStore({
     db: db,
     checkExpirationInterval: 15 * 60 * 1000,
     expiration: 60 * 60 * 1000
 });
 app.use(session({
-    secret: "example value",
+    secret: process.env.KEY,
     resave: true,
     saveUninitialized: false,
     cookie: { maxAge: 60 * 60 * 1000 }, // 1 hour

@@ -11,10 +11,12 @@ FencePOS is an Open-source Point of Sale software to keep track of retail transa
 
 ### Features
 
-| Feature              | Status  |
-|:---------------------|:--------|
-| Inventory management | Planned |
-| Cashier interface    | Planned |
+| Feature              | Status      |
+|:---------------------|:------------|
+| Inventory management | Planned     |
+| Cashier interface    | Planned     |
+| Custom Command-Line  | In-Progress |
+
 
 ### Tech stack
 
